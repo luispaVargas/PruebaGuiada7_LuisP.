@@ -47,8 +47,6 @@ public class Interfaz extends javax.swing.JFrame {
         jTextFieldPrecioItem = new javax.swing.JTextField();
         jButtonRegistrar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jTextFieldRate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,8 +85,6 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Rate");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,15 +102,13 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel4))
                         .addGap(87, 87, 87)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxEnvio, 0, 120, Short.MAX_VALUE)
                             .addComponent(jTextFieldKMS)
                             .addComponent(jTextFieldItems)
-                            .addComponent(jTextFieldPrecioItem)
-                            .addComponent(jTextFieldRate))))
+                            .addComponent(jTextFieldPrecioItem))))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,11 +130,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldPrecioItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextFieldRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegistrar)
                     .addComponent(jButtonBorrar))
@@ -198,7 +188,7 @@ public class Interfaz extends javax.swing.JFrame {
       } else if(TipoEnvio.equalsIgnoreCase("Bicicleta")){
             
        try{
-          int kms = Integer.parseInt(jTextFieldKMS.getText());
+          double kms = Double.parseDouble(jTextFieldKMS.getText());
           
           if(kms <= 0){
                JOptionPane.showMessageDialog(null,"ingrese kilometros mayores a 0");
@@ -217,14 +207,14 @@ public class Interfaz extends javax.swing.JFrame {
              
         } else if(TipoEnvio.equalsIgnoreCase("Furgoneta")){
             try{
-                int kms = Integer.parseInt(jTextFieldKMS.getText());
+                double kms = Double.parseDouble(jTextFieldKMS.getText());
                 
                 if(kms <= 0){
                JOptionPane.showMessageDialog(null,"ingrese kilometros mayores a 0");
                return;
           }
             String codigoVan = "VAN-" + ContadorVan;    
-                chareableController.registrarVanDelivery(TipoEnvio, kms);
+                chareableController.registrarVanDelivery(codigoVan, kms);
                 ContadorVan++;
                 
                 JOptionPane.showMessageDialog(null, "Codigo generado: " + codigoVan);
@@ -254,7 +244,7 @@ public class Interfaz extends javax.swing.JFrame {
           jTextFieldItems.setText("");
          jTextFieldKMS.setText("");
          jTextFieldPrecioItem.setText("");
-         jTextFieldRate.setText("");
+        
          jComboBoxEnvio.setSelectedIndex(0);
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
@@ -271,33 +261,32 @@ public class Interfaz extends javax.swing.JFrame {
               jTextFieldPrecioItem.setEnabled(true);
 
         jTextFieldKMS.setEnabled(false);
-        jTextFieldRate.setEnabled(false);
+       
            
         } else  if(TipoEnvio.equalsIgnoreCase("Bicicleta")){
             jLabel2.setVisible(true);
-            jLabel5.setVisible(true);
+           
             
-            jTextFieldRate.setVisible(true);
+           
             jTextFieldKMS.setVisible(true);
             
             jTextFieldItems.setEnabled(false);
             jTextFieldPrecioItem.setEnabled(false);
 
              jTextFieldKMS.setEnabled(true);
-              jTextFieldRate.setEnabled(true);
-        
+              
         } else if(TipoEnvio.equalsIgnoreCase("Furgoneta")){
             jLabel2.setVisible(true);
-            jLabel5.setVisible(true);
+           
                 
-                jTextFieldRate.setVisible(true);
+                
                 jTextFieldKMS.setVisible(true);
                 
                 jTextFieldItems.setEnabled(false);
                 jTextFieldPrecioItem.setEnabled(false);
 
                 jTextFieldKMS.setEnabled(true);
-                jTextFieldRate.setEnabled(true);
+                
         }
     }//GEN-LAST:event_jComboBoxEnvioActionPerformed
 
@@ -344,11 +333,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldItems;
     private javax.swing.JTextField jTextFieldKMS;
     private javax.swing.JTextField jTextFieldPrecioItem;
-    private javax.swing.JTextField jTextFieldRate;
     // End of variables declaration//GEN-END:variables
 }

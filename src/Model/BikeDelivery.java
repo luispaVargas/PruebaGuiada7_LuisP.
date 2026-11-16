@@ -10,7 +10,7 @@ package Model;
  */
 public class BikeDelivery extends Delivery {
 
-    public BikeDelivery(String trackingId, int distanceKm) {
+    public BikeDelivery(String trackingId, double distanceKm) {
         
        super(trackingId,distanceKm);
     }

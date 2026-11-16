@@ -27,7 +27,7 @@ public class ChargeableController {
    
    
     
-    public void registrarBikeDelivery(String trackingId, int distanceKm){
+    public void registrarBikeDelivery(String trackingId, double distanceKm){
         
        BikeDelivery bikeDelivery = new BikeDelivery(trackingId, distanceKm);
         
@@ -38,7 +38,7 @@ public class ChargeableController {
         
     }
     
-    public void registrarVanDelivery(String trackingId, int distanceKm){
+    public void registrarVanDelivery(String trackingId,double distanceKm){
         VanDelivery vanDelivery = new VanDelivery(trackingId,distanceKm);
        
         
